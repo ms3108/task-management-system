@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task.title }} - Simple Task API{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>{{ task.title }}</h3>
+                <div>
+                    {% if task.completed %}
+                    <span class="badge bg-success">Completed</span>
+                    {% else %}
+                    <span class="badge bg-warning">Pending</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                {% if task.description %}
+                <div class="mb-4">
+                    <h5>Description</h5>
+                    <p>{{ task.description }}</p>
+                </div>
+                {% endif %}
+
+                {% if task.deadline %}
+                <div class="mb-4">
+                    <h5>Deadline</h5>
+                    <p>{{ task.deadline.strftime('%B %d, %Y') }}</p>
+                </div>
+                {% endif %}
+
+                <div class="d-flex gap-2">
+                    <a href="/tasks/{{ task.id }}/edit" class="btn btn-primary">Edit Task</a>
+                    <form method="post" action="/tasks/{{ task.id }}/delete" style="display: inline;">
+                        <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete this task?')">Delete Task</button>
+                    </form>
+                    <a href="/tasks/ui" class="btn btn-secondary">Back to Tasks</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">Welcome to Simple Task API</h1>
+            <p class="lead">Manage your tasks efficiently with our RESTful API.</p>
+            <hr class="my-4">
+            <p>Get started by creating an account or logging in to manage your tasks.</p>
+            <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+            <a class="btn btn-outline-primary btn-lg" href="/login" role="button">Login</a>
+            <a class="btn btn-success btn-lg" href="/tasks/ui" role="button">View Tasks</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">📝 Task Management</h5>
+                <p class="card-text">Create, update, and organize your tasks with ease.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🔐 Secure Authentication</h5>
+                <p class="card-text">JWT-based authentication keeps your data safe.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">🚀 RESTful API</h5>
+                <p class="card-text">Full REST API for integration with other applications.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
